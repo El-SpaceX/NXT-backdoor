@@ -25,11 +25,11 @@ def ShowDialogHelp():
 
 comandos especiais:
 
-    dk_spamdir - cria uma quantidade determinada de diretorios na maquina da vitima.
-    dk_checkv - checa a versao do backdoor.
-    dk_getfile - envia um arquivo da maquina da vitima para sua maquina.
-    dk_sendfile - envia um arquivo da sua maquina para a maquina da vitima.
-    dk_exit - fecha conexão com a vitima atual.
+    nxt_spamdir - cria uma quantidade determinada de diretorios na maquina da vitima.
+    nxt_checkv - checa a versao do backdoor.
+    nxt_getfile - envia um arquivo da maquina da vitima para sua maquina.
+    nxt_sendfile - envia um arquivo da sua maquina para a maquina da vitima.
+    nxt_exit - fecha conexão com a vitima atual.
     cls - limpa o terminal
 
 comandos normais:
