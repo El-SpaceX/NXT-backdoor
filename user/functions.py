@@ -25,11 +25,11 @@ def ShowDialogHelp():
 
 comandos especiais:
 
-    nxt_spamdir - cria uma quantidade determinada de diretorios na maquina da vitima.
-    nxt_checkv - checa a versao do backdoor.
-    nxt_getfile - envia um arquivo da maquina da vitima para sua maquina.
-    nxt_sendfile - envia um arquivo da sua maquina para a maquina da vitima.
-    nxt_exit - fecha conexão com a vitima atual.
+    NXT_spamdir - cria uma quantidade determinada de diretorios na maquina da vitima.
+    NXT_checkv - checa a versao do backdoor.
+    NXT_getfile - envia um arquivo da maquina da vitima para sua maquina.
+    NXT_sendfile - envia um arquivo da sua maquina para a maquina da vitima.
+    NXT_exit - fecha conexão com a vitima atual.
     cls - limpa o terminal
 
 comandos normais:
