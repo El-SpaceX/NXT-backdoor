@@ -75,6 +75,7 @@ while True:
                         server.send(f'E: {ex}'.encode())
                     continue
 
+
                 elif(data['command'] == 'nxt_sendfile'):
                     try:
                         if('\/' in data['file']):

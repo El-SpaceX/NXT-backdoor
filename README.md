@@ -1,6 +1,6 @@
 # NXT Backdoor
 
-NXT é um backdoor desenvolvido em python para fins de aprendizado.
+NXT Backdoor, como o nome diz, é um backdoor feito em python com o objetivo de aprendizado, ele possui algumas funções simples, mas que podem causar bastante caos.
 
 # Changelog
 
