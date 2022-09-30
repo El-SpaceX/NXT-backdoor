@@ -2,15 +2,16 @@ v1.0.1
 
 Feito:
 -- Usar comandos no CMD da vitima.                  - Qualquer comando que não seja especial.        
--- Transferir arquivos da vitima para sua maquina.  - dk_getfile
--- Transferir arquivos da sua maquina para vitima.  - dk_sendfile
--- Criar vários diretorios(troll).                  - dk_spamdir
+-- Transferir arquivos da vitima para sua maquina.  - nxt_getfile
+-- Transferir arquivos da sua maquina para vitima.  - nxt_sendfile
+-- Criar vários diretorios(troll).                  - nxt_spamdir
+-- Checar informações do IP da vitima               - nxt_infoip
 
 
 Fazer:
 
--- Transmitir tela da vitima. (dk_showscreen) [Sai tudo cagado mais melhor doq nada]
--- Printar a tela da vitima. (dk_printscreen)
+-- Transmitir tela da vitima. (nxt_showscreen) [Sai tudo cagado mais melhor doq nada]
+-- Printar a tela da vitima. (nxt_printscreen)
 -- KeyLogger embutido. (Por enquanto somente e possivel fazer atraves de transferencia e execução de arquivos)
 -- Auto-inicializacao.
 

